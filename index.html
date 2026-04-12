@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Something Special</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #E8F5E9;
+      font-family: 'Pacifico', cursive, 'Poppins';
+      background: 
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px),
+        #E8F5E9;
+      background-size: 3px 3px, 3px 3px;
       color: #444;
       display: flex;
       align-items: center;
@@ -30,11 +35,13 @@
     h1 {
       margin-top: 0;
       font-size: 2rem;
+      font-family: 'Pacifico', cursive;
     }
 
     p {
       font-size: 1.05rem;
       margin: 12px 0;
+      font-family: 'Poppins', sans-serif;
     }
 
     #countdown {
@@ -48,15 +55,16 @@
       margin-top: 18px;
       font-size: 0.95rem;
       opacity: 0.8;
+      font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Something special is waiting for you ♡</h1>
-    <p>Please wait until your birthday.</p>
+    <h1>Half a Year of Us - Our Story ♡</h1>
+    <p>Opening soon...</p>
     <div id="countdown">Loading countdown...</div>
-    <div class="small">Come back when the time arrives ✨</div>
+    <div class="small">Nnti bday awak scan balik ye sayang.. 😘</div>
   </div>
 
   <script>
@@ -75,8 +83,9 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-      el.textContent = `${days}d ${hours}h ${minutes}m`;
+      el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateCountdown();
@@ -84,3 +93,4 @@
   </script>
 </body>
 </html>
+
