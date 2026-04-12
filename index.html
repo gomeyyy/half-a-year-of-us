@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Something Special</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #E8F5E9;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #FFF8F0;
+      border: 2px solid #D6CCC2;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 500px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin: 12px 0;
+    }
+
+    #countdown {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #6B9080;
+    }
+
+    .small {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Something special is waiting for you ♡</h1>
+    <p>Please wait until your birthday.</p>
+    <div id="countdown">Loading countdown...</div>
+    <div class="small">Come back when the time arrives ✨</div>
+  </div>
+
+  <script>
+    const targetDate = new Date("2026-04-15T00:00:00").getTime(); // change this
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      const el = document.getElementById("countdown");
+
+      if (diff <= 0) {
+        el.textContent = "It is time 💖";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      el.textContent = `${days}d ${hours}h ${minutes}m`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
