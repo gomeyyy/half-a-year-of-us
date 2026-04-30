@@ -1,0 +1,843 @@
+/* ============================================
+   MEMORY LANE PAGE STYLES
+   Soft, Aesthetic, Personal Journal Styling
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: 
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 2px),
+    linear-gradient(135deg, #F5E6D3 0%, #E8F5E9 50%, #FCE4EC 100%);
+  background-size: 3px 3px, 3px 3px, 100% 100%;
+  background-attachment: fixed;
+  color: #5a5a5a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6B9080, #D6AD7B, #E7A6B3);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 1200;
+  box-shadow: 0 2px 10px rgba(107, 144, 128, 0.25);
+}
+
+/* ============================================
+   NAVIGATION & BACK BUTTON
+   ============================================ */
+
+.back-nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 248, 240, 0.85);
+  color: #6B9080;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 248, 240, 0.95);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateX(-3px);
+}
+
+/* ============================================
+   INTRO SECTION
+   ============================================ */
+
+.intro-section {
+  text-align: center;
+  padding: 80px 40px 60px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.intro-title {
+  display: inline-block;
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #8B6F47;
+  margin-bottom: 15px;
+  padding: 12px 34px 18px;
+  border: 2px solid rgba(139, 111, 71, 0.42);
+  border-radius: 28px;
+  background: rgba(255, 248, 240, 0.34);
+  box-shadow: 0 8px 24px rgba(139, 111, 71, 0.08), inset 0 0 0 6px rgba(255, 248, 240, 0.45);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.intro-title::before,
+.intro-title::after {
+  content: '';
+  display: inline-block;
+  width: 42px;
+  height: 1px;
+  margin: 0 14px 9px;
+  background: linear-gradient(90deg, transparent, rgba(214, 173, 123, 0.9), transparent);
+}
+
+.text-reveal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.28em;
+}
+
+.intro-title.text-reveal {
+  display: inline-flex;
+  align-items: center;
+}
+
+.reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px) rotate(1deg);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--word-index, 0) * 55ms);
+}
+
+.is-visible .reveal-word {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+
+.intro-subtitle {
+  font-size: 1.3rem;
+  color: #D6AD7B;
+  font-family: 'Cormorant_Garamond', serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.intro-text {
+  font-size: 1.05rem;
+  color: #6B7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ============================================
+   LETTER SECTION
+   ============================================ */
+
+.letter-section {
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.letter-card {
+  background: rgba(255, 248, 240, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(214, 204, 194, 0.5);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 90%;
+  width: 900px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.letter-card h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #8B6F47;
+  margin-bottom: 20px;
+}
+
+.letter-content {
+  font-size: 1rem;
+  color: #6B7280;
+  margin-bottom: 16px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.letter-content:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   MEMORY SECTIONS (Monthly Cards)
+   ============================================ */
+
+.memory-section {
+  margin: 30px auto;
+  padding: 50px 40px;
+  max-width: 100%;
+  width: 1200px;
+}
+
+.month-title {
+  font-family: 'Cormorant_Garamond', serif;
+  font-size: 2.5rem;
+  color: #8B6F47;
+  text-align: center;
+  margin-bottom: 35px;
+  position: relative;
+  padding-bottom: 0px;
+}
+
+.month-title::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D6AD7B, transparent);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ============================================
+   CAROUSEL - Image Gallery
+   ============================================ */
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  max-width: 700px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  width: 100%;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 600px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+  filter: brightness(0.7);
+  transform: scale(0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  filter: brightness(1);
+  transform: scale(1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  max-height: 600px;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: white;
+  padding: 20px;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-style: italic;
+  min-height: 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.carousel-item.active .image-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Carousel Navigation Buttons */
+
+.carousel-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #D6AD7B;
+  background: rgba(255, 248, 240, 0.85);
+  color: #8B6F47;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 248, 240, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(107, 144, 128, 0.2);
+  color: #6B9080;
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* Carousel Indicators (dots) */
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(214, 204, 194, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(214, 204, 194, 0.6);
+}
+
+.carousel-indicator.active {
+  background: #8B6F47;
+  transform: scale(1.3);
+}
+
+.carousel-indicator:hover {
+  background: #D6AD7B;
+}
+
+/* ============================================
+   MONTH SUMMARY
+   ============================================ */
+
+.month-summary {
+  background: rgba(255, 248, 240, 0.6);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid #D6AD7B;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.65s ease, opacity 0.65s ease, box-shadow 0.65s ease;
+}
+
+.month-summary h3 {
+  font-family: 'Cormorant_Garamond', serif;
+  font-size: 1.4rem;
+  color: #8B6F47;
+  margin-bottom: 15px;
+}
+
+.month-summary p {
+  font-size: 1rem;
+  color: #6B7280;
+  line-height: 1.8;
+}
+
+/* ============================================
+   QUESTIONS SECTION
+   ============================================ */
+
+.questions-box {
+  background: linear-gradient(135deg, rgba(245, 230, 211, 0.4), rgba(248, 229, 236, 0.4));
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.65s ease, opacity 0.65s ease;
+}
+
+.questions-box h4 {
+  font-family: 'Cormorant_Garamond', serif;
+  font-size: 1.2rem;
+  color: #8B6F47;
+  margin-bottom: 15px;
+}
+
+.questions-box ul {
+  list-style: none;
+}
+
+.questions-box li {
+  font-size: 0.95rem;
+  color: #6B7280;
+  padding: 8px 0;
+  margin-left: 0;
+  line-height: 1.6;
+}
+
+.questions-box li::before {
+  content: '✨ ';
+  color: #D6AD7B;
+  margin-right: 8px;
+}
+
+/* ============================================
+   OUTRO SECTION
+   ============================================ */
+
+.outro-section {
+  padding: 100px 40px 80px;
+  text-align: center;
+}
+
+.outro-card {
+  background: rgba(255, 248, 240, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(214, 204, 194, 0.5);
+  border-radius: 20px;
+  padding: 60px 40px;
+  max-width: 90%;
+  width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.outro-card h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: #8B6F47;
+  margin-bottom: 30px;
+}
+
+.outro-text {
+  font-size: 1.05rem;
+  color: #6B7280;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.outro-signature {
+  font-family: 'Cormorant_Garamond', serif;
+  font-size: 1.2rem;
+  color: #D6AD7B;
+  font-style: italic;
+  margin-top: 40px;
+  line-height: 1.8;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: rgba(255, 248, 240, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 40px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(214, 204, 194, 0.3);
+  margin-top: 60px;
+}
+
+.footer p {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.1rem;
+  color: #8B6F47;
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  display: inline-block;
+  color: #6B9080;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: rgba(107, 144, 128, 0.1);
+}
+
+.footer-link:hover {
+  background: rgba(107, 144, 128, 0.2);
+  transform: translateX(-3px);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.memory-section .carousel-container,
+.memory-section .carousel-controls,
+.memory-section .month-summary,
+.memory-section .questions-box,
+.letter-card,
+.outro-card {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.is-visible .carousel-container,
+.is-visible .letter-card,
+.is-visible .outro-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-visible .carousel-controls {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+.is-visible .month-summary {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.18s;
+}
+
+.is-visible .questions-box {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.28s;
+}
+
+.month-summary:hover,
+.questions-box:hover {
+  transform: translateY(-3px);
+}
+
+.month-summary:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 2rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+  }
+
+  .month-title {
+    font-size: 1.8rem;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .carousel-wrapper {
+    padding: 0 20px;
+  }
+
+  .carousel-item {
+    flex: 0 0 100% !important;
+    opacity: 1 !important;
+    filter: brightness(1) !important;
+    transform: scale(1) !important;
+  }
+
+  .carousel-item.active {
+    opacity: 1;
+    filter: brightness(1);
+    transform: scale(1);
+  }
+
+  .carousel-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .carousel-controls {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .carousel-buttons {
+    gap: 10px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .month-summary,
+  .questions-box {
+    padding: 20px;
+  }
+
+  .month-summary h3 {
+    font-size: 1.2rem;
+  }
+
+  .questions-box h4 {
+    font-size: 1rem;
+  }
+
+  .outro-card {
+    padding: 40px 25px;
+  }
+
+  .outro-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .back-nav {
+    top: 10px;
+    left: 10px;
+  }
+
+  .back-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .intro-title::before,
+  .intro-title::after {
+    width: 24px;
+    margin: 0 8px 7px;
+  }
+
+  .letter-card {
+    padding: 25px;
+  }
+
+  .letter-card h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .intro-section {
+    padding: 60px 15px 40px;
+  }
+
+  .intro-title {
+    font-size: 1.5rem;
+    padding: 10px 18px 14px;
+    border-radius: 22px;
+  }
+
+  .intro-title::before,
+  .intro-title::after {
+    display: none;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+  }
+
+  .intro-text {
+    font-size: 0.9rem;
+  }
+
+  .month-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .memory-section {
+    margin: 50px auto;
+    padding: 40px 15px;
+  }
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .carousel-controls {
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  .carousel-buttons {
+    gap: 8px;
+  }
+
+  .image-caption {
+    font-size: 0.85rem;
+    padding: 15px;
+  }
+
+  .questions-box ul li {
+    font-size: 0.85rem;
+  }
+
+  .month-summary {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .month-summary h3 {
+    font-size: 1rem;
+  }
+
+  .outro-card {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+
+  .outro-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .outro-text {
+    font-size: 0.95rem;
+  }
+
+}
+
+/* ============================================
+   SCROLL BEHAVIOR
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .fade-in,
+  .memory-section .carousel-container,
+  .memory-section .carousel-controls,
+  .memory-section .month-summary,
+  .memory-section .questions-box,
+  .letter-card,
+  .outro-card,
+  .reveal-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .back-nav,
+  .footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  .memory-section,
+  .intro-section,
+  .letter-section,
+  .outro-section {
+    page-break-inside: avoid;
+  }
+}

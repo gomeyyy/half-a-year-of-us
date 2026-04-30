@@ -3,94 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Something Special</title>
+  <title>Landing Page - Half a Year of Us</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Pacifico', cursive, 'Poppins';
-      background: 
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px),
-        repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px),
-        #E8F5E9;
-      background-size: 3px 3px, 3px 3px;
-      color: #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 24px;
-    }
-
-    .card {
-      background: #FFF8F0;
-      border: 2px solid #D6CCC2;
-      border-radius: 20px;
-      padding: 32px 24px;
-      max-width: 500px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2rem;
-      font-family: 'Pacifico', cursive;
-    }
-
-    p {
-      font-size: 1.05rem;
-      margin: 12px 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    #countdown {
-      margin-top: 20px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #6B9080;
-    }
-
-    .small {
-      margin-top: 18px;
-      font-size: 0.95rem;
-      opacity: 0.8;
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h1>Half a Year of Us - Our Story ♡</h1>
-    <p>Opening soon...</p>
-    <div id="countdown">Loading countdown...</div>
-    <div class="small">Nnti bday awak scan balik ye sayang.. 😘</div>
+  <div class="photo-collage" aria-hidden="true">
+    <img class="collage-photo photo-1" src="Pics/Photobooth/6079864767335042159.jpg" alt="">
+    <img class="collage-photo photo-2" src="Pics/Photobooth/6260093930221276652.jpg" alt="">
+    <img class="collage-photo photo-3" src="Pics/Photobooth/6312138711826632933.jpg" alt="">
+    <img class="collage-photo photo-4" src="Pics/Photobooth/6312138711826632942.jpg" alt="">
+    <img class="collage-photo photo-5" src="Pics/Photobooth/IMG_6303.JPG" alt="">
+    <img class="collage-photo photo-6" src="Pics/Photobooth/IMG_9020.JPG" alt="">
   </div>
 
-  <script>
-    const targetDate = new Date("2026-04-15T00:00:00").getTime(); // change this
+  <div class="card">
+    <h1>Half a Year of Us - Our Story ♡</h1>
+    <p>Opening 1st of May 2026 (10:00 PM)</p>
+    <div id="countdown">Loading countdown...</div>
+    <p class="small">Can't wait to share our journey with you! 💖</p>
+    <div id="button-container">
+      <a href="page1.html" class="link-button">View Our Story</a>
+    </div>
+  </div>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-      const el = document.getElementById("countdown");
-
-      if (diff <= 0) {
-        el.textContent = "It is time 💖";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
