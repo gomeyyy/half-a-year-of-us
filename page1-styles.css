@@ -20,6 +20,8 @@ body {
   color: #5a5a5a;
   line-height: 1.6;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .scroll-progress {
@@ -72,7 +74,7 @@ body {
 
 .intro-section {
   text-align: center;
-  padding: 80px 40px 60px;
+  padding: 84px 40px 58px;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -80,7 +82,7 @@ body {
 .intro-title {
   display: inline-block;
   font-family: 'Pacifico', cursive;
-  font-size: 3rem;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
   color: #8B6F47;
   margin-bottom: 15px;
   padding: 12px 34px 18px;
@@ -127,12 +129,14 @@ body {
 }
 
 .intro-subtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
   color: #D6AD7B;
   font-family: 'Cormorant_Garamond', serif;
   font-weight: 300;
   margin-bottom: 20px;
   font-style: italic;
+  line-height: 1.45;
+  text-wrap: balance;
 }
 
 .intro-text {
@@ -158,26 +162,31 @@ body {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(214, 204, 194, 0.5);
   border-radius: 20px;
-  padding: 40px;
+  padding: clamp(28px, 5vw, 52px);
   max-width: 90%;
   width: 900px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  text-align: center;
+  text-align: left;
 }
 
 .letter-card h2 {
   font-family: 'Pacifico', cursive;
-  font-size: 2rem;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
   color: #8B6F47;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .letter-content {
-  font-size: 1rem;
-  color: #6B7280;
-  margin-bottom: 16px;
-  line-height: 1.8;
+  font-family: 'Cormorant_Garamond', serif;
+  font-size: clamp(1.16rem, 1.7vw, 1.34rem);
+  color: #5f6470;
+  max-width: 70ch;
+  margin: 0 auto 20px;
+  line-height: 1.85;
   font-style: italic;
+  letter-spacing: 0;
 }
 
 .letter-content:last-child {
@@ -189,20 +198,22 @@ body {
    ============================================ */
 
 .memory-section {
-  margin: 30px auto;
-  padding: 50px 40px;
+  margin: 36px auto;
+  padding: 52px 40px;
   max-width: 100%;
   width: 1200px;
 }
 
 .month-title {
   font-family: 'Cormorant_Garamond', serif;
-  font-size: 2.5rem;
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
   color: #8B6F47;
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 38px;
   position: relative;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
+  font-weight: 400;
+  text-wrap: balance;
 }
 
 .month-title::after {
@@ -271,12 +282,17 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-item img {
+.carousel-item img,
+.carousel-item video {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
   max-height: 600px;
+}
+
+.carousel-item video {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .image-caption {
@@ -286,7 +302,7 @@ body {
   right: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   color: white;
-  padding: 20px;
+  padding: 46px 22px 20px;
   font-size: 0.95rem;
   font-family: 'Poppins', sans-serif;
   text-align: center;
@@ -298,6 +314,9 @@ body {
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.45s ease, transform 0.45s ease;
+  line-height: 1.55;
+  text-wrap: balance;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
 }
 
 .carousel-item.active .image-caption {
@@ -385,7 +404,7 @@ body {
   backdrop-filter: blur(10px);
   border-left: 4px solid #D6AD7B;
   border-radius: 12px;
-  padding: 30px;
+  padding: clamp(24px, 4vw, 40px);
   margin-bottom: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
   transition: transform 0.65s ease, opacity 0.65s ease, box-shadow 0.65s ease;
@@ -393,15 +412,29 @@ body {
 
 .month-summary h3 {
   font-family: 'Cormorant_Garamond', serif;
-  font-size: 1.4rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
   color: #8B6F47;
-  margin-bottom: 15px;
+  margin: 0 auto 18px;
+  max-width: 38rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 .month-summary p {
-  font-size: 1rem;
-  color: #6B7280;
-  line-height: 1.8;
+  font-size: clamp(0.99rem, 1.25vw, 1.08rem);
+  color: #606672;
+  line-height: 1.9;
+  max-width: 75ch;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.month-summary p + p {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(214, 173, 123, 0.2);
 }
 
 /* ============================================
@@ -411,7 +444,7 @@ body {
 .questions-box {
   background: linear-gradient(135deg, rgba(245, 230, 211, 0.4), rgba(248, 229, 236, 0.4));
   border-radius: 15px;
-  padding: 25px;
+  padding: clamp(22px, 3vw, 30px);
   margin-bottom: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: transform 0.65s ease, opacity 0.65s ease;
@@ -419,27 +452,35 @@ body {
 
 .questions-box h4 {
   font-family: 'Cormorant_Garamond', serif;
-  font-size: 1.2rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   color: #8B6F47;
   margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .questions-box ul {
   list-style: none;
+  max-width: 70ch;
+  margin: 0 auto;
 }
 
 .questions-box li {
-  font-size: 0.95rem;
+  font-size: clamp(0.96rem, 1.2vw, 1.04rem);
   color: #6B7280;
-  padding: 8px 0;
+  padding: 10px 0;
   margin-left: 0;
-  line-height: 1.6;
+  line-height: 1.65;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .questions-box li::before {
   content: '✨ ';
   color: #D6AD7B;
-  margin-right: 8px;
+  margin-right: 0;
+  flex: 0 0 auto;
 }
 
 /* ============================================
@@ -456,7 +497,7 @@ body {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(214, 204, 194, 0.5);
   border-radius: 20px;
-  padding: 60px 40px;
+  padding: clamp(36px, 6vw, 64px) clamp(24px, 5vw, 48px);
   max-width: 90%;
   width: 900px;
   margin: 0 auto;
@@ -465,25 +506,29 @@ body {
 
 .outro-card h2 {
   font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
   color: #8B6F47;
   margin-bottom: 30px;
+  text-wrap: balance;
 }
 
 .outro-text {
-  font-size: 1.05rem;
-  color: #6B7280;
-  margin-bottom: 20px;
-  line-height: 1.8;
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  color: #606672;
+  max-width: 72ch;
+  margin: 0 auto 20px;
+  line-height: 1.9;
+  text-align: left;
 }
 
 .outro-signature {
   font-family: 'Cormorant_Garamond', serif;
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
   color: #D6AD7B;
   font-style: italic;
   margin-top: 40px;
   line-height: 1.8;
+  text-wrap: balance;
 }
 
 /* ============================================
@@ -659,15 +704,15 @@ body {
 
   .month-summary,
   .questions-box {
-    padding: 20px;
+    padding: 22px;
   }
 
   .month-summary h3 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 
   .questions-box h4 {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .outro-card {
@@ -695,11 +740,11 @@ body {
   }
 
   .letter-card {
-    padding: 25px;
+    padding: 26px;
   }
 
   .letter-card h2 {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
   }
 }
 
@@ -758,20 +803,27 @@ body {
 
   .image-caption {
     font-size: 0.85rem;
-    padding: 15px;
+    padding: 38px 14px 14px;
+    line-height: 1.45;
   }
 
   .questions-box ul li {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
   }
 
   .month-summary {
-    padding: 15px;
+    padding: 20px 18px;
     margin-bottom: 20px;
   }
 
   .month-summary h3 {
-    font-size: 1rem;
+    font-size: 1.22rem;
+  }
+
+  .letter-content,
+  .month-summary p,
+  .outro-text {
+    line-height: 1.78;
   }
 
   .outro-card {
